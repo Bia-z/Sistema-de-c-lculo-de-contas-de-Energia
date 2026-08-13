@@ -11,6 +11,8 @@ public class Main
         BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 
         Cadastro sistema = new Cadastro();
+        Relatorio relatorio = new Relatorio(sistema.getConsumidores());
+
 
         int opcao = 0;
         while (opcao != 7) {
@@ -30,10 +32,10 @@ public class Main
                 System.out.println("Opção não implementada.");
             }
             else if (opcao == 5) {
-                System.out.println("Opção não implementada.");
+                relatorio.imprimirRelatorio();
             }
             else if (opcao == 6) {
-                sistema.consultarConsumidor(teclado);
+                System.out.println("Opção não implementada.");
             }
             else if (opcao == 7) {
                 System.out.println("Encerrando o programa...");

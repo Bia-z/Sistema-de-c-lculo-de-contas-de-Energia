@@ -11,6 +11,11 @@ public class Cadastro {
         this.consumidores = new ArrayList<>();
     }
 
+    //GETTERS
+    public ArrayList<Consumidor> getConsumidores(){
+        return this.consumidores;
+    }
+
     // MÉTODOS
     public void cadastrarConsumidor(BufferedReader teclado) throws IOException {
         System.out.println("Insira o código numérico do consumidor: \n");
@@ -27,9 +32,11 @@ public class Cadastro {
         int baixaRenda = Integer.parseInt(teclado.readLine());
 
         Consumidor novo = new Consumidor(codigo, consumo, baixaRenda, bandeira); //
-        //Consumidor aqui é o tipo da várivael novo
+        //Consumidor aqui é o tipo da váriavel novo
         // mesma ordem do construtor
         this.consumidores.add(novo);
+
+
     }
 
     public void consultarConsumidor(BufferedReader teclado) throws IOException {
@@ -52,4 +59,9 @@ public class Cadastro {
             }
         }
     }
+
+    public Relatorio gerarRelatorio() {
+        return new Relatorio(this.consumidores);
+    }
+
 }
