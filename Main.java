@@ -10,7 +10,7 @@ public class Main
         System.out.println("Sistema de cálculo de contas de energia.");
         BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 
-        Cadastro sistema = new Cadastro();
+        GerenciadorConsumidores sistema = new GerenciadorConsumidores();
         Relatorio relatorio = new Relatorio(sistema.getConsumidores());
 
 
@@ -26,16 +26,16 @@ public class Main
                 sistema.consultarConsumidor(teclado);
             }
             else if (opcao == 3) {
-                System.out.println("Opção não implementada.");
+                sistema.apagarConsumidor(teclado);
             }
             else if (opcao == 4) {
-                System.out.println("Opção não implementada.");
+                sistema.atualizarDados(teclado);
             }
             else if (opcao == 5) {
                 relatorio.imprimirRelatorio();
             }
             else if (opcao == 6) {
-                System.out.println("Opção não implementada.");
+                sistema.listarConsumidores();
             }
             else if (opcao == 7) {
                 System.out.println("Encerrando o programa...");
@@ -52,6 +52,6 @@ public class Main
         System.out.printf("4. Atualizar dados de um consumidor.\n");
         System.out.printf("5. Relatórios.\n");
         System.out.printf("6. Listar consumidores.\n");
-        System.out.printf("7. Sair do programga.\n");
+        System.out.printf("7. Sair do programa.\n");
     }
 }
