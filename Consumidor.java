@@ -10,10 +10,10 @@ public class Consumidor {
 
     // CONSTRUTOR
     public Consumidor(int codigo, double consumo, int baixaRenda, int bandeira) {
-        this.codigo = codigo;
-        this.consumo = consumo;
-        this.baixaRenda = baixaRenda;
-        this.bandeira = bandeira;
+        this.setCodigo(codigo);
+        this.setConsumo(consumo);
+        this.setBaixaRenda(baixaRenda);
+        this.setBandeira(bandeira);
     }
 
     // GETTERS
@@ -23,10 +23,34 @@ public class Consumidor {
     public int getBandeira() {return this.bandeira;}
 
     // SETTERS
-    public void setCodigo(int codigo) {this.codigo = codigo;}
-    public void setConsumo(double consumo) {this.consumo = consumo;}
-    public void setBaixaRenda(int baixaRenda) {this.baixaRenda = baixaRenda;}
-    public void setBandeira(int bandeira){this.bandeira = bandeira;}
+    public void setCodigo(int codigo) {
+        if (codigo < 0){
+            System.out.println("Código inválido");
+            return;
+        }
+        this.codigo = codigo;
+    }
+    public void setConsumo(double consumo) {
+        if (consumo < 0){
+            System.out.println("Consumo inválido");
+            return;
+        }
+        this.consumo = consumo;
+    }
+    public void setBaixaRenda(int baixaRenda) {
+        if (baixaRenda != 1 && baixaRenda != 0){
+            System.out.println("Entrada para Baixa Renda inválida!");
+            return;
+        }
+        this.baixaRenda = baixaRenda;
+    }
+    public void setBandeira(int bandeira){
+        if (bandeira != 1 && bandeira != 2 && bandeira != 3){
+            System.out.println("Entrada para tipo de bandeira inválida!");
+            return;
+        }
+        this.bandeira = bandeira;
+    }
 
     // MÉTODOS
     public double calcularConta()
